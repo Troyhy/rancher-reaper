@@ -79,7 +79,10 @@ class RancherAwsHostReaper
         # We could possibly allow an option to also delete hosts that are not found.
         # For now err on the side of safety and skip it.
         @logger.info("Host #{host["hostname"]} not found in AWS - reaping!!!")
-        is_terminated = true			
+        is_terminated = true
+      else
+        @logger.info("Host #{host["hostname"]} not found in AWS - reaping!!!!!")
+        is_terminated = true
       end
     else
       # We could possibly do a "best effort" search for the instance based on Rancher hostname here.
