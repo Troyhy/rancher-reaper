@@ -80,7 +80,7 @@ class RancherAwsHostReaper
         # For now err on the side of safety and skip it.
         @logger.info("Host #{host["hostname"]} not found in AWS - reaping!!!")
         is_terminated = true
-      else
+      rescue NoMethodError
         @logger.info("Host #{host["hostname"]} not found in AWS - reaping!!!!!")
         is_terminated = true
       end
